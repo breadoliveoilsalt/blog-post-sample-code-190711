@@ -1,0 +1,198 @@
+/* CSS works bottom up for responsive design, assuming base case is a device with resolution of 320px wide */
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Courier New", "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue"
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px; /* this sets the ems and font-size %*/
+  background-image: url("./images/birch-tree-background.png") /* 320px wide per base case above */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+.app-container {
+  width: 100%;
+  text-align: center;
+  font-family: "Courier New";
+  margin: 0em auto;
+}
+
+.header {
+  font-size: 400%;
+  font-weight: bold;
+  margin: 0 auto;
+  margin-top: 0.5em;
+  background-color: white;
+  border: .1em solid grey;
+  width: 90%;
+  max-width: 700px;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.navbar {
+  font-size: 100%;
+  font-weight: bold;
+  margin: 1em auto;
+  background-color: white;
+  border: .25em solid grey;
+  width: 90%;
+  max-width: 700px;
+  padding: .25em 0;
+}
+
+a:link {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  color: grey;
+}
+
+.navlink {
+  display: inline-block;
+  margin: 0 1em;
+}
+
+input {
+  font-family: Courier;
+  font-size: 100%;
+}
+
+/* Necessary to override browser's built in rendering */
+input[type="submit"] {
+  border: .25em solid black;
+  height: 2.5em;
+}
+
+#search-input {
+  display: inline-block;
+  margin-right: 1em;
+  height: 2em;
+  border: .25em solid black;
+  background-color: #e7e7e7;
+  width: 60%;
+  max-width: 600px;
+  padding-left: .5em; /* so curser is not right up against edge */
+}
+
+#search-submit-button {
+  display: inline-block;
+  border: 1em solid black;
+  height: 100%;
+  width: 20%;
+  max-width: 200px;
+}
+
+#clear-search-button {
+  width: 60%;
+  max-width: 600px;
+  height: 100%;
+  margin-top: 1em;
+  background-color: black;
+  color: white;
+  border: .25em solid grey;
+}
+
+.error-display {
+  background-color: pink;
+  border: .25em solid red;
+  width: 75%;
+  max-width: 700px;
+  margin: 0em auto;
+  margin-top: 1em;
+  padding: 0.25em;
+  font-weight: bold;
+
+}
+
+.big-divider {
+  border: 1px solid grey;
+  width: 80%;
+  margin: 1em auto;
+}
+
+.search-results-container {
+  margin: 0 auto;
+  width: 80%;
+}
+
+#search-results-header {
+  background-color: white;
+  border: .25em solid grey;
+  margin-top: 1em;
+}
+
+.search-results-header-text {
+  padding-bottom: .75em;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.book-record {
+  background-color: white;
+  border: .25em solid grey;
+  margin-top: 1em;
+}
+
+.book-thumbnail {
+  border: .1em solid black;
+}
+.search-results-footer {
+  padding-top: 1em;
+  margin-top: 1em;
+  margin-bottom: 3em;
+  background-color: white;
+  border: .25em solid grey;
+}
+
+.loader {
+  margin: 0 auto;
+  margin-bottom: 1em;
+  border: 10px solid #e7e7e7;
+  border-top: 10px solid black;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+.about-page {
+  background-color: white;
+  margin: 0 auto;
+  width: 80%;
+  border: .25em solid grey;
+  font-weight: bold;
+  padding: 1em;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (min-width: 800px) {
+
+  body {
+    font-size: 20px;
+  }
+
+}

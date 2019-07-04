@@ -1,33 +1,50 @@
-import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-import Header from './components_presentational/Header'
-import NavBar from './components_presentational/NavBar'
-import SearchLayoutAndLogic from './components_container/SearchLayoutAndLogic'
-import AboutPage from './components_presentational/AboutPage'
+import { startLoader, stopLoader } from './actionCreators'
+import Loader from './components_presentational/Loader'
 
-const App = () => {
 
-  return (
+class App extends Component {
 
-    <BrowserRouter>
 
-      <div className="app-container">
+  render() {
+    return (
 
-        <Header />
-        <NavBar />
-
-        <Switch>
-            <Route path="/" exact component={SearchLayoutAndLogic} />
-            <Route path="/about" exact component={AboutPage} />
-          </Switch>
-
+      <div className="app-container" >
+        <Loader />
       </div>
 
-    </ BrowserRouter>
-
-  )
+    )
+  }
 
 }
 
-export default App
+const mapStateToProps = (state) => {
+  return {
+    loaderRunning: state.loaderRunning
+    // currentError: state.appStatus.currentError,
+    // userSearchTerms: state.currentSearch.userSearchTerms,
+    // resultsPerSearch: state.currentSearch.resultsPerSearch,
+    // searchStartingID: state.currentSearch.searchStartingID,
+    // results: state.currentSearch.results,
+    // resultNumber: state.currentSearch.resultNumber
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    startLoader: () => dispatch(startLoader()),
+    stopLoader: () => dispatch(stopLoader())
+    // loadError: (message) => dispatch(loadError(message)),
+    // deleteError: () => dispatch(deleteError()),
+    // beginBookAPIRequest: () => dispatch(beginBookAPIRequest()),
+    // endBookAPIRequest: () => dispatch(endBookAPIRequest()),
+    // loadSearchTerms: (searchTerms) => dispatch(loadSearchTerms(searchTerms)),
+    // increaseSearchStartingID: () => dispatch(increaseSearchStartingID()),
+    // resetSearch: () => dispatch(resetSearch()),
+    // getBookRecordsBasicSearch: (searchParameters) => dispatch(getBookRecordsBasicSearch(searchParameters))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

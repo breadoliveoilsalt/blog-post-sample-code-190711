@@ -8,7 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px; /* this sets the ems and font-size %*/
-  background-image: url("./images/birch-tree-background.png") /* 320px wide per base case above */
+  /* background-image: url("./images/birch-tree-background.png") /* 320px wide per base case above */ 
 }
 
 code {

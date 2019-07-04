@@ -3,32 +3,51 @@ import { connect } from 'react-redux'
 
 import { startLoader, stopLoader } from './actionCreators'
 import Loader from './components_presentational/Loader'
-
+import InfoPage from './components_presentational/InfoPage'
 
 class App extends Component {
 
-
-  render() {
-    return (
-
-      <div className="app-container" >
-        <Loader />
-      </div>
-
-    )
+  constructor(props) {
+    super(props)
+    this.handleLoaderStart = this.handleLoaderStart.bind(this)
+    this.handleLoaderStop = this.handleLoaderStop.bind(this)
   }
 
+  handleLoaderStart(event) {
+    event.preventDefault()
+    this.props.startLoader()
+  }
+
+  handleLoaderStop(event) {
+    event.preventDefault()
+    this.props.stopLoader()
+  }
+
+
+  render() {
+
+    if (this.props.loaderRunning) {
+      return (
+        <div>
+          <Loader />
+          <a href="" onClick={this.handleLoaderStop}> Click to Stop Loader and See Info Page </a>
+        </div>
+      )
+    } else if (!this.props.loaderRunning) {
+      return (
+        <div>
+          <InfoPage />
+          <a href="" onClick={this.handleLoaderStart}> Click to Start Loader </a>
+        </div>
+      )
+    }
+  }
 }
+
 
 const mapStateToProps = (state) => {
   return {
     loaderRunning: state.loaderRunning
-    // currentError: state.appStatus.currentError,
-    // userSearchTerms: state.currentSearch.userSearchTerms,
-    // resultsPerSearch: state.currentSearch.resultsPerSearch,
-    // searchStartingID: state.currentSearch.searchStartingID,
-    // results: state.currentSearch.results,
-    // resultNumber: state.currentSearch.resultNumber
   }
 }
 
@@ -36,14 +55,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     startLoader: () => dispatch(startLoader()),
     stopLoader: () => dispatch(stopLoader())
-    // loadError: (message) => dispatch(loadError(message)),
-    // deleteError: () => dispatch(deleteError()),
-    // beginBookAPIRequest: () => dispatch(beginBookAPIRequest()),
-    // endBookAPIRequest: () => dispatch(endBookAPIRequest()),
-    // loadSearchTerms: (searchTerms) => dispatch(loadSearchTerms(searchTerms)),
-    // increaseSearchStartingID: () => dispatch(increaseSearchStartingID()),
-    // resetSearch: () => dispatch(resetSearch()),
-    // getBookRecordsBasicSearch: (searchParameters) => dispatch(getBookRecordsBasicSearch(searchParameters))
   }
 }
 

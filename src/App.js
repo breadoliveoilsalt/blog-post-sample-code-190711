@@ -15,17 +15,15 @@ class App extends Component {
 
   handleLoaderStart(event) {
     event.preventDefault()
-    this.props.startLoader()
+    this.props.dispatchStartLoader()
   }
 
   handleLoaderStop(event) {
     event.preventDefault()
-    this.props.stopLoader()
+    this.props.dispatchStopLoader()
   }
 
-
   render() {
-
     if (this.props.loaderRunning) {
       return (
         <div>
@@ -42,8 +40,8 @@ class App extends Component {
       )
     }
   }
-}
 
+}
 
 const mapStateToProps = (state) => {
   return {
@@ -53,8 +51,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    startLoader: () => dispatch(startLoader()),
-    stopLoader: () => dispatch(stopLoader())
+    dispatchStartLoader: () => dispatch(startLoader()),
+    dispatchStopLoader: () => dispatch(stopLoader())
   }
 }
 

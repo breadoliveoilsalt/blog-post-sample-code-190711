@@ -5,7 +5,7 @@ import { startLoader, stopLoader } from './actionCreators'
 import Loader from './components_presentational/Loader'
 import InfoPage from './components_presentational/InfoPage'
 
-class App extends Component {
+export class App extends Component {
 
   constructor(props) {
     super(props)

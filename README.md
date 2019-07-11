@@ -1,6 +1,6 @@
 # Welcome!
 
-This is sample code to accompany the blog post [here]()
+This is sample code to accompany the blog post [here](https://www.breadoliveoilsalt.com/coding/2019/07/11/testing-redux-connected-components.html).
 
 ## Running the App Locally and Running Tests
 
